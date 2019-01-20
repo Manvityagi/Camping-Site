@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+<style>
+
+header {
+    width: 100%;
+}
+
+    .text-container{
+         padding-left: calc(4px * 3);
+         padding-right: calc(4px * 3);
+         padding-top: calc(4px * 3);
+    }
+    
+    body{
+        background-image: url("https://images.unsplash.com/photo-1531859901179-df82d06ef6db?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+    }
+   
+</style>
+
+        
+      
+    
+        <header class="jumbotron jumbotron-fluid">
+           <div class="container">
+                <h1 style="color:white;">Welcome to YelpCamp Page</h1>
+                <p style="color:white;">View the most awesome campgrounds from all over the world</p>
+                <p>
+                  <a class="btn btn-primary btn-lg"href="/campgrounds/new" > Add new Campground </a> 
+                </p>
+           </div>
+        </header>
+        
+        
+        
+        <div class="row text-center" style="display:flex; flex-wrap: wrap;margin-left:85px;"> 
+            <% campgrounds.forEach(function(campground){ %>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="thumbnail">
+                            <img id="inimg" src="<%= campground.image %>">
+                            <div class="caption">
+                               <strong><h3><%= campground.name %> </h3></strong>
+                               <strong><h4><%= campground.location %> </h4></strong>
+                            </div>
+                        
+                            <p>
+                                <a href="/campgrounds/<%= campground._id %> " class="btn btn-primary"><strong>More Info</strong></a>
+                            </p>
+                        </div>    
+                    </div>
+            <% }); %>
+        </div>
+
+        
+        
+<% include ../partials/footer %> 
