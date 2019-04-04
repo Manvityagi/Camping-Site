@@ -1,4 +1,5 @@
 # Camping-Site
+FRONT END NOT TO BE JUDGED 
 
 A template web project implementing all the basic backend skills & some front end.
 Instructions to run :
