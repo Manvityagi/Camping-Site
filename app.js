@@ -43,6 +43,8 @@ passport.deserializeUser(User.deserializeUser());
 //to pass currentuser to every route
 //middleware, whatever function we provide to it will be called on every route
 app.use(function(req, res, next){
+
+    //console.log(`req.user: ${req.user}`);
     //pass that req.user to every single template
     //whatever we put in res.locals is whats available inside of our template
     res.locals.currentUser =   req.user;
@@ -59,7 +61,7 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 //     console.log("The Yelpcamp server has started")
 // });  
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3030;
 app.listen(port, function () {
     console.log(`[OK] server started on port ${port}`);
 });

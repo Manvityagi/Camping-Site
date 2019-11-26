@@ -20,25 +20,17 @@ router.get("/",function(req,res){
 });
 
 //CREATE - add new campground to DB
-router.post("/", middleware.isLoggedIn, function(req, res){
+    router.post("/", middleware.isLoggedIn, function(req, res){
   // get data from form and add to campgrounds array
-  var name = req.body.name;
-  var image = req.body.image;
-  var desc = req.body.description;
-  var author = {
-      id: req.user._id,
-      username: req.user.username
-  }
-  var price = req.body.price;
-    var location = req.body.location;
-    var newCampground = {name: name, image: image, description: desc, price: price, author:author, location: location};
+  const { name, image, description, price, location} = req.body;
+
+  const newCampground = { name, image, description, price, location, author: { id: req.user._id, username: req.user.username } };
     // Create a new campground and save to DB
     Campground.create(newCampground, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else {
             //redirect back to campgrounds page
-            console.log(newlyCreated);
             res.redirect("/campgrounds");
         }
     });
@@ -51,7 +43,7 @@ router.get("/new", middleware.isLoggedIn, function(req,res){
    res.render("campgrounds/new"); 
 }); 
 
-//SHOW - show info about one dog
+//SHOW - show info about one campground
 router.get("/:id",function(req,res){
     //find the cg with provided id
     Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
