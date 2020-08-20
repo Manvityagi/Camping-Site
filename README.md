@@ -38,6 +38,7 @@ Index
 | POST | /register | Handle Signup Logic |
 | POST | /login | Render Login Page |
 | POST | /login | Handle Login logic |
+| GET | /logout | Logs out the user |
 
 `/campgrounds`
 | REQUEST METHODS | ENDPOINTS | DESCRIPTION |
