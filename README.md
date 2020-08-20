@@ -1,6 +1,6 @@
 # Camping-Site
 
-A web project implementing all the basic backend skills & some front end including
+A web project implementing: 
 1. CRUD Operations
 2. Authentication with PassportJS
 3. Authorization Middlewares
